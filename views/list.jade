@@ -45,10 +45,11 @@ html(lang="en")
           .form-group
             .col-xs-10
               button.btn.btn-primary#new_todo + New Item
+              
     footer.footer
       .container
-        p.text-muted #{not_done_count} incomplete, #{done_count} complete
-        //- p!= done_todos
+        block done_count
+          p.text-muted #{not_done_count} incomplete, #{done_count} complete
     script(src='/js/jquery.min.js')
     script(src="/js/bootstrap.min.js")
     script(src="/js/todo.js")
