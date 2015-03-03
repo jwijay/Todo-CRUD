@@ -26,9 +26,11 @@ html(lang="en")
                 .row
                   .checkbox.col-xs-10
                     label
-                      //- TODO: attach handler to onchance
-                      input(type="checkbox", value="", onchange="")
-                      li.completed_false
+                      if todo.is_done
+                        input(type="checkbox", data-todo-id="#{todo._id}", value="", checked)
+                      else
+                        input(type="checkbox", data-todo-id="#{todo._id}", value="")
+                      li
                         span.title!= todo.title
                         br
                         span.description!= todo.description
@@ -45,6 +47,6 @@ html(lang="en")
     footer.footer
       .container
         p.text-muted 2 incomplete, 4 complete
-    script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.2.min.js')
+    script(src='/js/jquery.min.js')
     script(src="/js/bootstrap.min.js")
     script(src="/js/todo.js")

@@ -53,20 +53,28 @@ app.post('/todos', function(req, res) {
   });
 });
 
-
-
-//methodOverride(getter, options)
-//HANDLE DELETE ROUTE HERE
 app.delete('/todos/:_id', function(req, res) {
-  //JK do it here
-  console.log(req.params._id);
   var _id = req.params._id || "";
   Todo.findOneAndRemove({"_id" : _id}, function(err) {
     if (err) throw err;
     res.redirect('/');
   });
-  // res.send('hello');
-  // res.end();
+});
+
+app.put('/todos/:_id/complete', function(req, res) {
+  var _id = req.params._id || "";
+  Todo.findOneAndUpdate({"_id" : _id}, {$set : {is_done : true}}, function(err) {
+    if (err) throw err;
+    res.send('OK');
+  });
+});
+
+app.put('/todos/:_id/uncomplete', function(req, res) {
+  var _id = req.params._id || "";
+  Todo.findOneAndUpdate({"_id" : _id}, {$set : {is_done : false}}, function(err) {
+    if (err) throw err;
+    res.send('OK');
+  });
 });
 
 var server = app.listen(3000, function() {
