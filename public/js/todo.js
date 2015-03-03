@@ -1,19 +1,50 @@
-$("ul").on("click", "#remove-button", function() {
-  this.parentNode.submit();
-});
+$(function() {
+  $('ul input[type=checkbox][checked]').siblings().find('span.title').css({
+      'text-decoration' : 'line-through',
+      'color' : '#AAA'
+  });
+  $('ul input[type=checkbox][checked]').siblings().find('span.description').css({
+      'text-decoration' : 'line-through',
+      'color' : '#AAA'
+  });
 
-$("ul").on("change", "input[type=checkbox]", function() {
-  var doc_id = $(this).data('todo-id');
+  $("ul").on("click", "#remove-button", function() {
+    this.parentNode.submit();
+  });
 
-  if ($(this).prop("checked")) {
-    $.ajax({
-      url : '/todos/'+doc_id+'/complete',
-      type : "PUT"
-    });
-  } else {
-    $.ajax({
-      url : '/todos/'+doc_id+'/uncomplete',
-      type : "PUT"
-    });
-  }
+  $("ul").on("change", "input[type=checkbox]", function() {
+    var doc_id = $(this).data('todo-id');
+    console.log($(this).children('span.title'));
+
+    if ($(this).prop("checked")) {
+      $(this).siblings().find('span.title').css({
+        'text-decoration' : 'line-through',
+        'color' : '#AAA'
+      });
+      $(this).siblings().find('span.description').css({
+        'text-decoration' : 'line-through',
+        'color' : '#AAA'
+      });
+      $.ajax({
+        url : '/todos/'+doc_id+'/complete',
+        type : "PUT"
+      });
+    } else {
+      $(this).siblings().find('span.title').css({
+        'text-decoration' : 'none',
+        'color' : '#333'
+      });
+      $(this).siblings().find('span.description').css({
+        'text-decoration' : 'none',
+        'color' : '#333'
+      });
+      $.ajax({
+        url : '/todos/'+doc_id+'/uncomplete',
+        type : "PUT"
+      });
+    }
+
+    $('.not_done_count').load('/ .not_done_count');
+    $('.done_count').load('/ .done_count');
+  });
 });

@@ -11,18 +11,26 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+body, .btn {
+  letter-spacing: .03em;
+}
+
 h1 {
   font-family: 'Bree Serif', serif;
-  font-size: 4em;
+  font-size: 3.5em;
 }
 
 a, a:hover {
   color: #333;
 }
 
+p.lead.text-muted {
+  margin-left: 40px;
+}
+
 .edit {
   font-style: italic;
-  color: #666;
+  color: #777;
   margin-left: 20px;
 }
 
@@ -43,9 +51,11 @@ a, a:hover {
   background-image: url('/images/seal.png');
   background-size: 98px;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: left bottom;
   padding-left: 105px;
   padding-top: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .x-box {
@@ -68,8 +78,8 @@ li {
   margin-left: 35px;
 }
 
-body, .btn {
-  letter-spacing: .03em;
+input[type="checkbox"] {
+  margin-top: 7px;
 }
 
 /* Custom page CSS

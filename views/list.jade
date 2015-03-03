@@ -18,7 +18,7 @@ html(lang="en")
         h1 
           a(href="/") Seal List
       block content
-        p.lead A simple Todo List App.
+        p.lead.text-muted A simple Todo List App.
         #todos
           .lead#content
             ul
@@ -33,7 +33,9 @@ html(lang="en")
                       li
                         span.title!= todo.title
                         a.right.edit(href="/todos/#{todo.id}/edit") Edit
-                        br
+                        if (todo.description == "")
+                        else
+                          br
                         span.description!= todo.description
                         br
 
@@ -49,7 +51,9 @@ html(lang="en")
     footer.footer
       .container
         block done_count
-          p.text-muted #{not_done_count} incomplete, #{done_count} complete
+          p.text-muted
+            span.not_done_count!= not_done_count + " incomplete, "
+            span.done_count!= done_count + " complete"
     script(src='/js/jquery.min.js')
     script(src="/js/bootstrap.min.js")
     script(src="/js/todo.js")
