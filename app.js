@@ -25,7 +25,10 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-  res.render('list');
+  Todo.find(function(err, todos) {
+    if (err) throw err;
+    res.render('list', {todos : todos});
+  });
 });
 
 app.get('/new_todo', function(req, res) {
@@ -50,10 +53,13 @@ app.post('/todos', function(req, res) {
   });
 });
 
+
+
 //methodOverride(getter, options)
 //HANDLE DELETE ROUTE HERE
-app.delete('/todos/:id', function() {
+app.delete('/todos/:id', function(req, res) {
   //JK do it here
+  res.send('hello');
 });
 
 var server = app.listen(3000, function() {

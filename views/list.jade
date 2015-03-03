@@ -22,44 +22,22 @@ html(lang="en")
         #todos
           .lead#content
             ul
-              .row
-                .checkbox.col-xs-10
-                  label
-                    //- TODO: attach handler to onchance
-                    input(type="checkbox", value="", onchange="")
-                    li.completed_false
-                      span.title Finish Starfox Travel Agency
-                      br
-                      span.description Implement jQuery/interactive bits
-                .x-box.col-xs-2
-                  //- form(action="/todos/#{item._id}", method="POST")
-                  form(action="/todos/0", method="POST")
-                    input(type="hidden", name="_method", value="DELETE")
+              for todo in todos
+                .row
+                  .checkbox.col-xs-10
+                    label
+                      //- TODO: attach handler to onchance
+                      input(type="checkbox", value="", onchange="")
+                      li.completed_false
+                        span.title!= todo.title
+                        br
+                        span.description!= todo.description
+                  .x-box.col-xs-2
+                    //- form(action="/todos/#{item._id}", method="POST")
                     .badge
-              .row
-                .checkbox.col-xs-10
-                  label
-                    input(type="checkbox", value="", onchange="")
-                    li.completed_false
-                      span.title Finish Level 2 of FlappyApp jQuery
-                      br
-                      span.description 
-                .x-box.col-xs-2
-                  form(action="/todos/1", method="POST")
-                    input(type="hidden", name="_method", value="DELETE")
-                    .badge
-              .row
-                .checkbox.col-xs-10
-                  label
-                    input(type="checkbox", value="", onchange="")
-                    li.completed_false
-                      span.title Finish Level 3 of FlappyApp jQuery
-                      br
-                      span.description
-                .x-box.col-xs-2
-                  form(action="/todos/2", method="POST")
-                    input(type="hidden", name="_method", value="DELETE")
-                    .badge
+                      form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
+                        //- input(type="hidden", name="_method", value="DELETE")
+                        span.glyphicon.glyphicon-remove#remove-button
         form.form-horizontal#new_todo(action="/new_todo", method="GET")
           .form-group
             .col-xs-10
@@ -67,3 +45,6 @@ html(lang="en")
     footer.footer
       .container
         p.text-muted 2 incomplete, 4 complete
+    script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.2.min.js')
+    script(src="/js/bootstrap.min.js")
+    script(src="/js/todo.js")
