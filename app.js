@@ -48,7 +48,7 @@ app.post('/todos', function(req, res) {
   });
 
   todo.save(function(err) {
-    if(err) throw err;
+    if (err) throw err;
     res.redirect('/');
   });
 });
@@ -57,9 +57,16 @@ app.post('/todos', function(req, res) {
 
 //methodOverride(getter, options)
 //HANDLE DELETE ROUTE HERE
-app.delete('/todos/:id', function(req, res) {
+app.delete('/todos/:_id', function(req, res) {
   //JK do it here
-  res.send('hello');
+  console.log(req.params._id);
+  var _id = req.params._id || "";
+  Todo.findOneAndRemove({"_id" : _id}, function(err) {
+    if (err) throw err;
+    res.redirect('/');
+  });
+  // res.send('hello');
+  // res.end();
 });
 
 var server = app.listen(3000, function() {
