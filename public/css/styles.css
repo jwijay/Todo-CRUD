@@ -1,0 +1,69 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Bree Serif', serif;
+  font-size: 4em;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.page-header {
+  background-image: url('/images/seal.png');
+  background-size: 98px;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 105px;
+  padding-top: 20px;
+}
+
+.x-box {
+  padding: 10px 10px 10px 0;
+}
+
+.badge:hover {
+  background-color: #999;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-left: 10px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}

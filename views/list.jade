@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="description", content="")
+    meta(name="author", content="")
+    //- link(rel="icon", href="favicon.ico")
+    title Todo List
+    link(href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:400italic,700italic,700,400', rel='stylesheet' type='text/css')
+    link(href="/css/bootstrap.min.css", rel="stylesheet")
+    link(href="/css/styles.css", rel="stylesheet")
+
+  body
+    .container
+      .page-header
+        h1 Seal List
+      p.lead A simple Todo List App.
+      #todos
+        .lead#content
+          ul
+            .row
+              .checkbox.col-xs-10
+                label
+                  //- TODO: attach handler to onchance
+                  input(type="checkbox", value="", onchange="")
+                  li.completed_false
+                    span.title Finish Starfox Travel Agency
+                    br
+                    span.description Implement jQuery/interactive bits
+              .x-box.col-xs-2
+                .badge
+            .row
+              .checkbox.col-xs-10
+                label
+                  input(type="checkbox", value="", onchange="")
+                  li.completed_false
+                    span.title Finish Level 2 of FlappyApp jQuery
+                    br
+                    span.description 
+              .x-box.col-xs-2
+                .badge
+            .row
+              .checkbox.col-xs-10
+                label
+                  input(type="checkbox", value="", onchange="")
+                  li.completed_false
+                    span.title Finish Level 3 of FlappyApp jQuery
+                    br
+                    span.description
+              .x-box.col-xs-2
+                .badge
+    footer.footer
+      .container
+        p.text-muted Don't forget the milk!
