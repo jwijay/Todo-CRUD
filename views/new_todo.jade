@@ -1,1 +1,16 @@
-new_todo.jade
+extends ./list.jade
+
+block content
+  p.lead A simple Todo List App.
+  form.form-horizontal#new_todo(action="/todos", method="POST")
+    .form-group
+      label.col-sm-2.control-label(for="title") Title
+      .col-sm-10
+        input.form-control#title(name="title" type="text", placeholder="Buy Milk")
+    .form-group
+      label.col-sm-2.control-label(for="description") Description
+      .col-sm-10
+        textarea.form-control#description(name="description" rows="5", type="text", placeholder="2% Chocolate Moo Moo Brand")
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-primary#create_todo(type="submit") Add to List

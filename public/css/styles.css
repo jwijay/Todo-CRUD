@@ -16,6 +16,10 @@ h1 {
   font-size: 4em;
 }
 
+h1 > a, h1 > a:hover {
+  color: #333;
+}
+
 .title {
   font-weight: bold;
 }
@@ -52,6 +56,14 @@ ul {
 
 li {
   padding-left: 10px;
+}
+
+#new_todo {
+  margin-left: 35px;
+}
+
+body, .btn {
+  letter-spacing: .03em;
 }
 
 /* Custom page CSS
