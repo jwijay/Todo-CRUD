@@ -1,7 +1,6 @@
 extends ./list.jade
 
 block content
-  p.lead A simple Todo List App.
   form.form-horizontal#new_todo(action="/todos/#{todo.id}?_method=PUT", method="POST")
     .form-group
       label.col-sm-2.control-label(for="title") Title
