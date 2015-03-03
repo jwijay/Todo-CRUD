@@ -25,10 +25,26 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
+  
   Todo.find(function(err, todos) {
-    if (err) throw err;
-    res.render('list', {todos : todos});
+
+    Todo.count({is_done : true}, function(err, done_count) {
+
+      Todo.count({is_done : false}, function(err, not_done_count) {
+
+        if (err) throw err;
+        res.render('list', {
+          todos : todos, 
+          done_count : done_count, 
+          not_done_count : not_done_count
+        });
+
+      });
+
+    });
+
   });
+
 });
 
 app.get('/new_todo', function(req, res) {
@@ -74,6 +90,30 @@ app.put('/todos/:_id/uncomplete', function(req, res) {
   Todo.findOneAndUpdate({"_id" : _id}, {$set : {is_done : false}}, function(err) {
     if (err) throw err;
     res.send('OK');
+  });
+});
+
+app.get('/todos/:_id/edit', function(req, res) {
+  var _id = req.params._id || "";
+  Todo.findOne({"_id" : _id}, function(err, todo) {
+    if (err) throw err;
+    res.render('update_todo', {todo : todo});
+  });
+});
+
+app.get('/todos', function(req, res) {
+  res.send('test');
+});
+
+app.put('/todos/:_id?', function(req, res) {
+  var _id = req.params._id || "";
+  var title = req.body.title;
+  var description = req.body.description;
+
+  Todo.findOneAndUpdate({"_id" : _id}, {$set : {title : title, description : description}}, function(err) {
+    if (err) throw err;
+    console.log('reaches here');
+    res.redirect('/');
   });
 });
 

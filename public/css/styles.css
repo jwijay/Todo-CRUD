@@ -16,8 +16,14 @@ h1 {
   font-size: 4em;
 }
 
-h1 > a, h1 > a:hover {
+a, a:hover {
   color: #333;
+}
+
+.edit {
+  font-style: italic;
+  color: #666;
+  margin-left: 20px;
 }
 
 .title {

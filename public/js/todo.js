@@ -10,14 +10,10 @@ $("ul").on("change", "input[type=checkbox]", function() {
       url : '/todos/'+doc_id+'/complete',
       type : "PUT"
     });
-    console.log('/todos/'+doc_id+'/complete');
-    alert('put request sent DAWG');
   } else {
     $.ajax({
       url : '/todos/'+doc_id+'/uncomplete',
       type : "PUT"
     });
-    console.log('/todos/'+doc_id+'/uncomplete');
-    alert('put request sent to uncomplete the task.');
   }
 });

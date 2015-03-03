@@ -32,13 +32,14 @@ html(lang="en")
                         input(type="checkbox", data-todo-id="#{todo._id}", value="")
                       li
                         span.title!= todo.title
+                        a.right.edit(href="/todos/#{todo.id}/edit") Edit
                         br
                         span.description!= todo.description
+                        br
+
                   .x-box.col-xs-2
-                    //- form(action="/todos/#{item._id}", method="POST")
                     .badge
                       form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
-                        //- input(type="hidden", name="_method", value="DELETE")
                         span.glyphicon.glyphicon-remove#remove-button
         form.form-horizontal#new_todo(action="/new_todo", method="GET")
           .form-group
@@ -46,7 +47,8 @@ html(lang="en")
               button.btn.btn-primary#new_todo + New Item
     footer.footer
       .container
-        p.text-muted 2 incomplete, 4 complete
+        p.text-muted #{not_done_count} incomplete, #{done_count} complete
+        //- p!= done_todos
     script(src='/js/jquery.min.js')
     script(src="/js/bootstrap.min.js")
     script(src="/js/todo.js")
