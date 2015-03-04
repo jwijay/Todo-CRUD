@@ -9,6 +9,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   font-family: 'Open Sans', sans-serif;
+  background-color: rgb(232, 238, 247);
 }
 
 body, .btn {
@@ -80,6 +81,10 @@ li {
 
 input[type="checkbox"] {
   margin-top: 7px;
+}
+
+span.description {
+  word-break: break-all;
 }
 
 /* Custom page CSS

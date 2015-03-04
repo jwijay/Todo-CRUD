@@ -14,7 +14,6 @@ $(function() {
 
   $("ul").on("change", "input[type=checkbox]", function() {
     var doc_id = $(this).data('todo-id');
-    console.log($(this).children('span.title'));
 
     if ($(this).prop("checked")) {
       $(this).siblings().find('span.title').css({

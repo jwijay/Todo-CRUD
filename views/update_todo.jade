@@ -1,7 +1,7 @@
 extends ./list.jade
 
 block content
-  form.form-horizontal#new_todo(action="/todos/#{todo.id}?_method=PUT", method="POST")
+  form.form-horizontal#new_todo(action="/todos/#{todo._id}?_method=PUT", method="POST")
     .form-group
       label.col-sm-2.control-label(for="title") Title
       .col-sm-10
@@ -9,7 +9,7 @@ block content
     .form-group
       label.col-sm-2.control-label(for="description") Description
       .col-sm-10
-        textarea.form-control#description(name="description", rows="5", type="text")!= todo.description
+        textarea.form-control#description(name="description", rows="5", type="text")= todo.description
     .form-group
       .col-sm-offset-2.col-sm-10
         button.btn.btn-primary#update_todo(type="submit") Save

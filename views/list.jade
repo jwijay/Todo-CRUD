@@ -31,12 +31,12 @@ html(lang="en")
                       else
                         input(type="checkbox", data-todo-id="#{todo._id}", value="")
                       li
-                        span.title!= todo.title
-                        a.right.edit(href="/todos/#{todo.id}/edit") Edit
+                        span.title= todo.title
+                        a.right.edit(href="/todos/#{todo._id}/edit") Edit
                         if (todo.description == "")
                         else
                           br
-                        span.description!= todo.description
+                        span.description= todo.description
                         br
 
                   .x-box.col-xs-2
@@ -52,8 +52,8 @@ html(lang="en")
       .container
         block done_count
           p.text-muted
-            span.not_done_count!= not_done_count + " incomplete, "
-            span.done_count!= done_count + " complete"
+            span.not_done_count= not_done_count + " incomplete, "
+            span.done_count= done_count + " complete"
     script(src='/js/jquery.min.js')
     script(src="/js/bootstrap.min.js")
     script(src="/js/todo.js")
