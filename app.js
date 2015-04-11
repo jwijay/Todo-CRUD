@@ -28,13 +28,13 @@ app.get('/', function(req, res) {
   var done_count = 0, not_done_count = 0;
   
   Todo.find(function(err, todos) {
-    todos.map(function(todo) {
-      if (todo.is_done) {
-        done_count++;
-      } else {
-        not_done_count++;
-      }
-    });
+    // todos.map(function(todo) {
+    //   if (todo.is_done) {
+    //     done_count++;
+    //   } else {
+    //     not_done_count++;
+    //   }
+    // });
 
     Todo.count({is_done : true}, function(err, done_count2) {
 
@@ -43,8 +43,8 @@ app.get('/', function(req, res) {
         if (err) throw err;
         res.render('list', {
           todos : todos, 
-          done_count : done_count, 
-          not_done_count : not_done_count
+          done_count : done_count2, 
+          not_done_count : not_done_count2
         });
 
       });
